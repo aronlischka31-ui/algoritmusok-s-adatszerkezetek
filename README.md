@@ -1,1 +1,0 @@
-# algoritmusok-s-adatszerkezetek
