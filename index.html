@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladatok Letöltése Sablon</title>
+    <style>
+        html, body {
+            /* Magasság eltávolítva a body-ról, hogy lehessen görgetni, ha 4 doboz van */
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; /* Minimum magasság, hogy a tartalom középen legyen, ha kevés van */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            /* VISSZAÁLLÍTVA: Függőleges elrendezés (egymás alatt) */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* KÖZÖTTI TÉR NÖVELVE a jobban elszeparált dobozokért */
+            gap: 1.5rem; /* Ezt csökkentettem, hogy kevésbé különüljenek el */
+            padding: 40px 0;
+            justify-content: flex-start; /* Középről felülre került az elrendezés, ha sok elem van */
+        }
+
+        /* TÖRÖLVE a .card-container CSS */
+
+        .page-title {
+            color: #004d99;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+            border-bottom: 4px solid #ffc107;
+            padding-bottom: 15px;
+            margin-bottom: 0;
+            text-align: center;
+            width: 75%;
+        }
+
+        .subtitle {
+            color: #495057;
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-top: 15px;
+            margin-bottom: 25px; /* Kisebb margó, közelebb kerülnek a dobozok */
+            text-align: center;
+        }
+
+        .window-card {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            text-align: center;
+            /* VISSZAÁLLÍTVA: Nagyobb szélesség az egyoszlopos elrendezéshez */
+            width: 90%;
+            max-width: 550px; 
+            transition: transform 0.2s;
+        }
+
+        .window-card:hover {
+            transform: translateY(-4px);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-link {
+            background-color: #28a745;
+            margin-bottom: 0;
+        }
+        .btn-link:hover {
+            background-color: #1e7e34;
+        }
+
+        /* TÖRÖLVE a media query */
+    </style>
+</head>
+<body>
+
+    <h1 class="page-title">Algoritmusok és adatszerkezetek a gyakorlatban</h1>
+    <p class="subtitle">Készítette: Lischka Áron - SSPWFB</p>
+
+    <div class="window-card">
+        <h2>Dice Combinations</h2>
+        <p>dinamikus-programozás</p>
+        
+        <button class="btn" onclick="downloadDiceCombo()">Megoldás letöltése</button>
+        
+        <button class="btn btn-link" onclick="openLink(diceComboLink)">
+            Feladatleírás megnyitása
+        </button>
+    </div>
+    
+    <div class="window-card">
+        <h2>2. Feladat</h2>
+        <p>Minimális érme</p>
+        
+        <button class="btn" onclick="downloadMinimaleErme()">MinimaleErme.py letöltése</button>
+        
+        <button class="btn btn-link" onclick="openLink(minimaleErmeLink)">
+            Feladatleírás megnyitása
+        </button>
+    </div>
+    
+    <div class="window-card">
+        <h2>3. Feladat</h2>
+        <p>Monoton módon növekvő tömb</p>
+        
+        <button class="btn" onclick="downloadMonotonNovekvo()">MonotonNovekvo.py letöltése</button>
+        
+        <button class="btn btn-link" onclick="openLink(monotonNovekvoLink)">
+            Feladatleírás megnyitása
+        </button>
+    </div>
+
+    <div class="window-card template">
+        <h2>4. Feladat: [Saját cím]</h2>
+        <p style="color: #495057;">Töltsd ki a dobozt a következő feladattal! A letöltés egy üres Python fájlt hoz létre.</p>
+        
+        <button class="btn" onclick="downloadTemplate()">feladat4.py Mentése</button>
+        
+        <button class="btn btn-link" onclick="openLink(templateLink)">
+            Saját Link Megnyitása
+        </button>
+    </div>
+    
+<script>
+    // =======================================================================================
+    // 1. LINK VÁLTOZÓK (EZT KELL MÓDOSÍTANOD!)
+    // =======================================================================================
+    const diceComboLink = "https://cses.fi/problemset/task/1079";
+    const minimaleErmeLink = "https://cses.fi/problemset/task/1636"; // Példa link
+    const monotonNovekvoLink = "https://cses.fi/problemset/task/1078"; // Példa link
+    const templateLink = "https://www.google.com/search?q=Helyettesítsd+ezt+a+linket";
+
+    function openLink(url) {
+        window.open(url, '_blank');
+    }
+    // =======================================================================================
+
+
+    // 2. KÓDOK A LETÖLTÉSHEZ
+    // =======================================================================================
+    const codeDiceCombo = `import sys
+
+# Dice Combinations megoldás (Dupla ciklusos megközelítés)
+
+def solve():
+    input = sys.stdin.read
+    data = input().split()
+    
+    if not data:
+        return
+        
+    n = int(data[0])
+    mod = 10**9 + 7
+    
+    dp = [0] * (n + 1)
+    dp[0] = 1
+    
+    for i in range(1, n + 1):
+        for j in range(1, 7):
+            if i - j >= 0:
+                dp[i] = (dp[i] + dp[i - j]) % mod
+                
+    print(dp[n])
+
+if __name__ == "__main__":
+    solve()
+`;
+
+    const codeMinimaleErme = `import sys
+
+# Minimális érme
+
+def solve():
+    # Ide írd a második feladat megoldását!
+    # ...
+    pass
+
+if __name__ == "__main__":
+    solve()
+`;
+    
+    const codeMonotonNovekvo = `import sys
+
+# Monoton módon növekvő tömb
+
+def solve():
+    # Ide írd a harmadik feladat megoldását!
+    # ...
+    pass
+
+if __name__ == "__main__":
+    solve()
+`;
+
+    const codeTemplate = `import sys
+
+# [FELADAT CÍME] - Írd át!
+
+def solve():
+    # Ide írd a következő feladat megoldását!
+    # n = int(sys.stdin.read())
+    # ...
+    pass
+
+if __name__ == "__main__":
+    solve()
+`;
+
+    // 3. LETÖLTŐ FÜGGVÉNYEK
+    // =======================================================================================
+    function downloadFile(filename, content) {
+        const element = document.createElement('a');
+        const file = new Blob([content], {type: 'text/x-python'});
+        element.href = URL.createObjectURL(file);
+        element.download = filename;
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+    }
+
+    function downloadDiceCombo() {
+        downloadFile('DiceCombinations.py', codeDiceCombo);
+    }
+    
+    function downloadMinimaleErme() {
+        downloadFile('MinimaleErme.py', codeMinimaleErme);
+    }
+
+    function downloadMonotonNovekvo() {
+        downloadFile('MonotonNovekvo.py', codeMonotonNovekvo);
+    }
+
+    function downloadTemplate() {
+        downloadFile('feladat4.py', codeTemplate);
+    }
+</script>
+
+</body>
+</html>
