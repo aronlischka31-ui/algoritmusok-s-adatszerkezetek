@@ -143,7 +143,7 @@
             <h2>Dice Combinations</h2>
             <p>dinamikus programozással</p>
             
-            <button class="btn" onclick="downloadDiceCombo()">DiceCombinations.py letöltése</button>
+            <button class="btn" onclick="downloadDiceCombinations()">DiceCombinations.py letöltése</button>
             
             <button class="btn btn-link" onclick="openLink(diceComboLink)">
                 Feladatleírás megnyitása
@@ -154,7 +154,7 @@
             <h2>ABA12C - Buying Apples!</h2>
             <p>dinamikus programozással</p>
             
-            <button class="btn" onclick="downloadMinimaleErme()">letoltes</button>
+            <button class="btn" onclick="downloadBuyingApples()">BuyingApples.py letöltése</button>
             
             <button class="btn btn-link" onclick="openLink(minimaleErmeLink)">
                 Feladatleírás megnyitása
@@ -212,7 +212,7 @@
 
     // 2. KÓDOK A LETÖLTÉSHEZ
     // =======================================================================================
-    const codeDiceCombo = `import sys
+    const codeDiceCombinations = `import sys
 
 # Dice Combinations megoldás (Dupla ciklusos megközelítés)
 
@@ -341,12 +341,12 @@ if __name__ == "__main__":
         document.body.removeChild(element);
     }
 
-    function downloadDiceCombo() {
-        downloadFile('DiceCombinations.py', codeDiceCombo);
+    function downloadDiceCombinations() {
+        downloadFile('DiceCombinations.py', codeDiceCombinations);
     }
     
-    function downloadMinimaleErme() {
-        downloadFile('feladat2.py', codeMinimaleErme);
+    function downloadBuyingApples() {
+        downloadFile('BuyingApples.py', codeBuyingApples);
     }
 
     function downloadMonotonNovekvo() {
@@ -366,4 +366,5 @@ if __name__ == "__main__":
 </body>
 
 </html>
+
 
