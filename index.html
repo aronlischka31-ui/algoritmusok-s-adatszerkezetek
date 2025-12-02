@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
+        /* --- Általános alap beállítások --- */
         html, body {
             margin: 0;
             padding: 0;
@@ -15,7 +16,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f7f9fc; 
+            background-color: #00796b; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -23,9 +24,10 @@
             justify-content: flex-start;
         }
         
+        /* --- Fejléc szekció --- */
         .header-section {
             width: 100%;
-            background-color: white; 
+            background-color: #57b5aa; 
             padding: 40px 0 20px 0; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
             margin-bottom: 50px; 
@@ -55,6 +57,7 @@
             margin: 5px auto 0 auto;
         }
 
+        /* --- Kártya elrendezés --- */
         .card-container {
             display: flex;
             flex-wrap: wrap;
@@ -65,6 +68,7 @@
             padding-bottom: 50px; 
         }
 
+        /* --- Egyedi kártya stílus és Flexbox beállítása --- */
         .window-card {
             background-color: white;
             padding: 2.5rem 2rem; 
@@ -74,9 +78,11 @@
             width: 280px; 
             min-width: 200px;
             transition: transform 0.3s, box-shadow 0.3s;
+            
+            /* Kártya tartalom (gombokkal együtt) függőleges Flexbox elrendezése */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-between; /* A tartalom és a gombok elszeparálása */
         }
         
         .window-card:hover {
@@ -84,13 +90,15 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
+        /* --- ÚJ: A gombok feletti tartalom konténere --- */
         .card-body {
-            flex-grow: 1;
+            /* A tartalom középre igazítása (szimmetria) */
+            flex-grow: 1; /* Hogy kitöltse a rendelkezésre álló helyet */
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1.5rem;
+            justify-content: center; /* Függőleges középre igazítás */
+            align-items: center; /* Vízszintes középre igazítás */
+            margin-bottom: 1.5rem; /* Elválasztás a gomboktól */
         }
 
         h2 {
@@ -113,7 +121,8 @@
         }
         
         p { display: none; }
-        
+
+        /* --- Gomb konténer és Stílusok --- */
         .button-group {
             width: 100%;
         }
@@ -122,9 +131,10 @@
             box-sizing: border-box; 
             display: block;
             width: 100%;
+            /* Fix magasság beállítása, hogy egyforma legyen */
             height: 50px; 
-            line-height: 20px;
-            padding: 15px 0;
+            line-height: 20px; /* A szöveg függőleges középre igazításához a padding helyett */
+            padding: 15px 0; /* Padding nullázása a pontos magassághoz */
             margin-top: 15px;
             font-size: 1.05rem;
             font-weight: 600;
@@ -150,18 +160,21 @@
             background-color: #e27c00;
         }
 
+        /* --- Lábléc stílus --- */
         .footer {
+            color: #1a2a4b; 
             width: 100%;
             padding: 20px 0;
-            background-color: #e9ecef; 
-            color: #6c757d;
+            background-color: #57b5aa; 
             text-align: center;
             font-size: 0.9rem;
             font-weight: 400;
             margin-top: auto; 
-            border-top: 1px solid #dee2e6;
+            box-shadow: 4px 4px 12px rgba(0,0,0,0.08)
         }
 
+
+        /* --- Reszponzivitás --- */
         @media (max-width: 1100px) {
             .window-card {
                 width: 40%; 
@@ -258,4 +271,3 @@
     </script>
 </body>
 </html>
-
