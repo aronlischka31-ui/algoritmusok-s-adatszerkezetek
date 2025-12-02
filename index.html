@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alga feladatok</title>
+    <title>Algoritmus feladatok</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <style>
+        /* --- Általános alap beállítások --- */
         html, body {
             margin: 0;
             padding: 0;
@@ -12,98 +15,133 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e9ecef;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f9fc; 
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 0;
+            padding-top: 0; 
             justify-content: flex-start;
         }
         
+        /* --- Fejléc szekció --- */
+        .header-section {
+            width: 100%;
+            background-color: white; 
+            padding: 40px 0 20px 0; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            margin-bottom: 50px; 
+        }
+        
+        .page-title {
+            color: #1a2a4b; 
+            font-size: 3rem; 
+            font-weight: 800; 
+            letter-spacing: 0.5px; 
+            text-shadow: none; 
+            padding-bottom: 5px; 
+            margin-bottom: 0;
+            text-align: center;
+            width: 90%; 
+            margin: 0 auto; 
+        }
+
+        .subtitle {
+            color: #6c757d;
+            font-size: 1.1rem;
+            font-weight: 300; 
+            margin-top: 5px; 
+            margin-bottom: 0; 
+            text-align: center;
+            width: 90%;
+            margin: 5px auto 0 auto;
+        }
+
+        /* --- Kártya elrendezés --- */
         .card-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 2rem; 
             max-width: 1200px;
             width: 95%;
+            padding-bottom: 50px; 
         }
 
-        .page-title {
-            color: #004d99;
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-            border-bottom: 4px solid #ffc107;
-            padding-bottom: 15px;
-            margin-bottom: 0;
-            text-align: center;
-            width: 90%; 
-        }
-
-        .subtitle {
-            color: #495057;
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-top: 15px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
+        /* --- Egyedi kártya stílus és Flexbox beállítása --- */
         .window-card {
             background-color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            padding: 2.5rem 2rem; 
+            border-radius: 16px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
             text-align: center;
-            width: 250px; 
+            width: 280px; 
             min-width: 200px;
-            transition: transform 0.2s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            
+            /* Kártya tartalom (gombokkal együtt) függőleges Flexbox elrendezése */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* A tartalom és a gombok elszeparálása */
         }
         
-        @media (max-width: 1100px) {
-            .window-card {
-                width: 45%; 
-            }
-        }
-        @media (max-width: 600px) {
-            .window-card {
-                width: 90%; 
-            }
+        .window-card:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
-        .window-card:hover {
-            transform: translateY(-4px);
+        /* --- ÚJ: A gombok feletti tartalom konténere --- */
+        .card-body {
+            /* A tartalom középre igazítása (szimmetria) */
+            flex-grow: 1; /* Hogy kitöltse a rendelkezésre álló helyet */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Függőleges középre igazítás */
+            align-items: center; /* Vízszintes középre igazítás */
+            margin-bottom: 1.5rem; /* Elválasztás a gomboktól */
         }
 
         h2 {
             margin-top: 0;
-            color: #333;
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
+            color: #343a40;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
-        p {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
+        .card-description {
+            display: inline-block;
+            color: #1a2a4b;
+            background-color: #e0f7fa; 
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            line-height: 1.2;
+        }
+        
+        p { display: none; }
+
+        /* --- Gomb konténer és Stílusok --- */
+        .button-group {
+            width: 100%;
         }
 
         .btn {
             box-sizing: border-box; 
             display: block;
             width: 100%;
-            padding: 14px;
-            margin-top: 10px;
-            font-size: 1rem;
+            /* Fix magasság beállítása, hogy egyforma legyen */
+            height: 50px; 
+            line-height: 20px; /* A szöveg függőleges középre igazításához a padding helyett */
+            padding: 15px 0; /* Padding nullázása a pontos magassághoz */
+            margin-top: 15px;
+            font-size: 1.05rem;
             font-weight: 600;
             color: white;
-            background-color: #007bff;
+            background-color: #00796b; 
             border: none;
-            border-radius: 6px;
+            border-radius: 8px; 
             cursor: pointer;
             transition: background-color 0.2s;
             text-decoration: none; 
@@ -111,103 +149,117 @@
         }
 
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #004d40;
         }
         
         .btn-link {
-            background-color: #28a745;
+            background-color: #ff9800; 
             margin-bottom: 0;
         }
         .btn-link:hover {
-            background-color: #1e7e34;
+            background-color: #e27c00;
         }
 
-        .btn-template {
-            background-color: #ffc107;
-            color: #343a40;
+        /* --- Lábléc stílus --- */
+        .footer {
+            width: 100%;
+            padding: 20px 0;
+            background-color: #e9ecef; 
+            color: #6c757d;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-top: auto; 
+            border-top: 1px solid #dee2e6;
         }
-        .btn-template:hover {
-            background-color: #e0a800;
+
+
+        /* --- Reszponzivitás --- */
+        @media (max-width: 1100px) {
+            .window-card {
+                width: 40%; 
+            }
+        }
+        @media (max-width: 650px) {
+            .window-card {
+                width: 90%; 
+            }
+            .page-title {
+                 font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1 class="page-title">Algoritmusok és adatszerkezetek a gyakorlatban</h1>
-    <p class="subtitle">Készítette: Lischka Áron - SSPWFB</p>
+    <div class="header-section">
+        <h1 class="page-title">Algoritmusok és adatszerkezetek a gyakorlatban</h1>
+        <p class="subtitle">Készítette: Lischka Áron - SSPWFB</p>
+    </div>
     
     <div class="card-container">
 
         <div class="window-card">
-            <h2>Dice Combinations</h2>
-            <p>dinamikus programozással</p>
+            <div class="card-body">
+                <h2>Dice Combinations</h2>
+                <div class="card-description">dinamikus programozással</div>
+            </div>
             
-            <a href="DiceCombinations.py" download="DiceCombinations.py" class="btn">
-                DiceCombinations.py letöltése
-            </a>
-            
-            <a href="#" class="btn btn-link" onclick="openLink(diceCombinationsLink)">
-                Feladatleírás megnyitása
-            </a>
+            <div class="button-group">
+                <a href="DiceCombinations.py" download="DiceCombinations.py" class="btn">
+                    DiceCombinations.py letöltése
+                </a>
+                
+                <a href="#" class="btn btn-link" onclick="openLink(diceCombinationsLink)">
+                    Feladatleírás megnyitása
+                </a>
+            </div>
         </div>
         
         <div class="window-card">
-            <h2>ABA12C - Buying Apples!</h2>
-            <p>dinamikus programozással</p>
+             <div class="card-body">
+                <h2>ABA12C - Buying Apples!</h2>
+                <div class="card-description">dinamikus programozással</div>
+            </div>
             
-            <a href="BuyingApples.py" download="BuyingApples.py" class="btn">
-                BuyingApples.py letöltése
-            </a>
-            
-            <a href="#" class="btn btn-link" onclick="openLink(buyingApplesLink)">
-                Feladatleírás megnyitása
-            </a>
+            <div class="button-group">
+                <a href="BuyingApples.py" download="BuyingApples.py" class="btn">
+                    BuyingApples.py letöltése
+                </a>
+                
+                <a href="#" class="btn btn-link" onclick="openLink(buyingApplesLink)">
+                    Feladatleírás megnyitása
+                </a>
+            </div>
         </div>
         
         <div class="window-card">
-            <h2>Building Teams</h2>
-            <p>gráf algoritmussal</p>
+            <div class="card-body">
+                <h2>Building Teams</h2>
+                <div class="card-description">gráf algoritmussal</div>
+            </div>
             
-            <a href="BuildingTeams.py" download="BuildingTeams.py" class="btn">
-                BuildingTeams.py letöltése
-            </a>
-            
-            <a href="#" class="btn btn-link" onclick="openLink(buildingTeamsLink)">
-                Feladatleírás megnyitása
-            </a>
-        </div>
-
-        <div class="window-card template">
-            <h2>cim</h2>
-            <p>feladat</p>
-            
-            <a href="cim4.py" download="cim4.py" class="btn">letoltes</a>
-            
-            <a href="#" class="btn btn-link" onclick="openLink(templateLink4)">
-                link
-            </a>
-        </div>
-        
-        <div class="window-card template">
-            <h2>cim</h2>
-            <p>feladat</p>
-            
-            <a href="cim5.py" download="cim5.py" class="btn">letoltes</a>
-            
-            <a href="#" class="btn btn-link" onclick="openLink(templateLink5)">
-                link
-            </a>
+            <div class="button-group">
+                <a href="BuildingTeams.py" download="BuildingTeams.py" class="btn">
+                    BuildingTeams.py letöltése
+                </a>
+                
+                <a href="#" class="btn btn-link" onclick="openLink(buildingTeamsLink)">
+                    Feladatleírás megnyitása
+                </a>
+            </div>
         </div>
     
     </div> 
+
+    <footer class="footer">
+        Készítette: Lischka Áron - SSPWFB
+    </footer>
 
     <script>
         const diceCombinationsLink = 'https://cses.fi/problemset/task/1633';
         const buyingApplesLink = 'https://www.spoj.com/problems/ABA12C/';
         const buildingTeamsLink = 'https://cses.fi/problemset/task/1668';
-        const templateLink4 = 'URL a negyedik feladathoz';
-        const templateLink5 = 'URL az ötödik feladathoz';
-
 
         function openLink(url) {
             if (url && url !== 'URL a Dice Combinations feladathoz') {
@@ -219,6 +271,3 @@
     </script>
 </body>
 </html>
-
-
-
