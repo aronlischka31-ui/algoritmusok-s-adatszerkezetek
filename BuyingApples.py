@@ -1,4 +1,4 @@
-import sys  # A 'sys' modul importálása a gyorsabb bemenet/kimenet (I/O) kezeléséhez.
+import sys
 
 def buyingApples():  # A fő függvény, ami a teljes program logikáját tartalmazza.
     # A standard bemenetről olvassuk be az összes adatot, és szóközök mentén felosztjuk egy listába.
@@ -70,3 +70,4 @@ def buyingApples():  # A fő függvény, ami a teljes program logikáját tartal
 
 
 buyingApples()
+
