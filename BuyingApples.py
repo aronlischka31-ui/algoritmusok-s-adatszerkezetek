@@ -1,8 +1,5 @@
 import sys  # A 'sys' modul importálása a gyorsabb bemenet/kimenet (I/O) kezeléséhez.
 
-
-# INF változó törölve lett.
-
 def buyingApples():  # A fő függvény, ami a teljes program logikáját tartalmazza.
     # A standard bemenetről olvassuk be az összes adatot, és szóközök mentén felosztjuk egy listába.
     adatok = sys.stdin.read().split()  # Beolvassa a bemenetet, és felosztja azt elemekre egy listában.
@@ -69,6 +66,7 @@ def buyingApples():  # A fő függvény, ami a teljes program logikáját tartal
         eredmenyek.append(str(vegso_minimum_koltseg))
 
     print('\n'.join(eredmenyek) + '\n')
+
 
 
 buyingApples()
