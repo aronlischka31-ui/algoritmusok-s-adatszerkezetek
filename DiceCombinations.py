@@ -9,8 +9,7 @@ def diceCombinations():
     """
 
     # --- 1. ADATBEOLVASÁS ---
-    # Minden bemenetet egyszerre olvasunk be a memóriába, majd feldaraboljuk.
-    # Ez sokkal gyorsabb Pythonban, mint soronként olvasni (input()).
+    # Beolvassuk a teljes bemenetet egyetlen hosszú stringként, majd feldaraboljuk szóközök/újsorok mentén.
     adatok = sys.stdin.read().split()
 
     if not adatok:
@@ -64,5 +63,6 @@ def diceCombinations():
     # --- 4. EREDMÉNY ---
     # A ciklus végére a tömb utolsó eleme tartalmazza a választ a teljes 'celosszeg'-re.
     print(db_lehetoseg[celosszeg])
+
 
 diceCombinations()
